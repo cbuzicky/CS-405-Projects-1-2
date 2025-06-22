@@ -1,0 +1,40 @@
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:52:5: warning: 'DontThrow' has a non-throwing exception specification but can still throw [clang-diagnostic-exceptions]
+   52 |     throw "Ha! I threw anyway!";
+      |     ^
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:50:8: note: function declared non-throwing here
+   50 |   void DontThrow() noexcept
+      |        ^           ~~~~~~~~
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:59:6: warning: Address of stack memory associated with local variable 'b' is still referred to by the caller variable 'a' upon returning to the caller.  This will be a dangling reference [clang-analyzer-core.StackAddressEscape]
+   58 |   int b = 1;
+      |   ~~~~~~~~~
+   59 |   *a = &b;
+      |      ^
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:59:6: note: Address of stack memory associated with local variable 'b' is still referred to by the caller variable 'a' upon returning to the caller.  This will be a dangling reference
+   58 |   int b = 1;
+      |   ~~~~~~~~~
+   59 |   *a = &b;
+      |      ^
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:109:3: warning: Value stored to 'tok' is never read [clang-analyzer-deadcode.DeadStores]
+  109 |   tok = tok->next();
+      |   ^     ~~~~~~~~~~~
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:109:3: note: Value stored to 'tok' is never read
+  109 |   tok = tok->next();
+      |   ^     ~~~~~~~~~~~
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:109:9: warning: Called C++ object pointer is null [clang-analyzer-core.CallAndMessage]
+  109 |   tok = tok->next();
+      |         ^~~
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:108:10: note: Assuming pointer value is null
+  108 |   while (tok);
+      |          ^~~
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:108:3: note: Loop condition is false. Execution continues on line 109
+  108 |   while (tok);
+      |   ^
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:109:9: note: Called C++ object pointer is null
+  109 |   tok = tok->next();
+      |         ^~~
+/Users/home/CLionProjects/Module5StaticAnalysis/main.cpp:129:24: warning: result of comparison of constant 3 with expression of type 'bool' is always false [clang-diagnostic-tautological-constant-out-of-range-compare]
+  129 |   assert(my_function() == 3);
+      |                        ^
+/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include/assert.h:75:25: note: expanded from macro 'assert'
+   75 |     (__builtin_expect(!(e), 0) ? __assert_rtn(__func__, __ASSERT_FILE_NAME, __LINE__, #e) : (void)0)
+      |                         ^
